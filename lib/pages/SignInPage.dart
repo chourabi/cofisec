@@ -1,3 +1,4 @@
+import 'package:cofisec/pages/AdminPage.dart';
 import 'package:cofisec/pages/HomePage.dart';
 import 'package:cofisec/pages/SignupPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -39,10 +40,17 @@ TextEditingController _passwordControl = new TextEditingController();
 
       print(response);
 
-         Navigator.pushReplacement(
+         if (response.user.email != 'admin@admin.com') {
+           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => HomePage()),
           );
+         } else {
+           Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => AdminPage()),
+           );
+         }
          
     }).catchError((e){
 

@@ -11,16 +11,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Widget> _tabs = new List();
+  List<Widget> _tabs = [
+    TrainingTab(),
+    FavorisPage(),
+    ProfileTab()
+  ];
   int _index = 0;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _tabs.add(TrainingTab());
-    _tabs.add(FavorisPage());
-    _tabs.add(ProfileTab());
     
     
   }
